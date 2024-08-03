@@ -6,7 +6,6 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
 use Jorenvh\Share\Share;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Acara;
 
@@ -32,8 +31,7 @@ class PostController extends Controller
         $categories = Category::latest()->get();
         $shareComponent = new Share();
         $shareComponent->page(
-            'http://www.mas-blog.test/articles',
-            'Your share text comes here'
+            'https://depatiagung.my.id/berita',
         )->facebook()->twitter()->linkedin()->telegram()->whatsapp()->instagram();
         $jadwal = Acara::where('status', false)->orderBy('id', 'desc')->get();
         return view('home.posts.posts', [
@@ -48,7 +46,7 @@ class PostController extends Controller
     public function show($slug)
     {
         $shareComponent = new Share();
-        $url = str_replace('{slug}', $slug, 'http://www.mas-blog.test/articles/{slug}');
+        $url = str_replace('{slug}', $slug, 'https://depatiagung.my.id/berita/{slug}');
         $shareComponent->page($url);
         $shareComponent->facebook()->twitter()->linkedin()->telegram()->whatsapp()->instagram();
         $post = Post::where('slug', $slug)->firstOrFail();

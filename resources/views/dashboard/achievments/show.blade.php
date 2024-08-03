@@ -7,7 +7,7 @@
                         Data Lengkap
                     </div>
                     <div>
-                        <a href="{{ route('prestasi.edit', $achievment->slug) }}">
+                        <a href="{{ route('prestasi.edit', $prestasi->slug) }}">
                             <i class="fa-solid fa-edit"></i>
                         </a>
                         <a href="{{ route('prestasi.index') }}">
@@ -18,8 +18,8 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item text-center">
-                        @if ($achievment->image)
-                        <img class=" img-fluid" src="{{ asset('storage/'.$achievment->image)}}"
+                        @if ($prestasi->image)
+                        <img class=" img-fluid" src="{{ asset('storage/'.$prestasi->image)}}"
                             alt="Generic placeholder image" width="300" height="300">
                         @else
                         <img class=" img-fluid"
@@ -28,11 +28,11 @@
                         @endif
                     </li>
                     <li class="list-group-item">
-                        <strong>{{ $achievment->title }}</strong>
+                        <strong>{{ $prestasi->title }}</strong>
                     </li>
                     <li class="list-group-item">
                         <article>
-                            {!! $achievment->body !!}
+                            {!! $prestasi->body !!}
                         </article>
                     </li>
                 </ul>

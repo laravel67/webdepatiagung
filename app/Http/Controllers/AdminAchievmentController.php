@@ -21,7 +21,7 @@ class AdminAchievmentController extends Controller
 
     public function create()
     {
-        
+
         return view('dashboard.achievments.create');
     }
 
@@ -38,20 +38,21 @@ class AdminAchievmentController extends Controller
             $validated['image'] = $request->file('image')->store('achievment-images');
         }
         Achievment::create($validated);
-        return redirect(route('prestasi.index'))->with('success', 'Achievment has been saved!');
+        return redirect(route('prestasi.index'))->with('success', 'Achievment berhasil disimpan!');
     }
 
-    public function show(Achievment $achievment)
+    public function show(Achievment $prestasi)
     {
-        return view('dashboard.achievments.show', compact('achievment'));
+        return view('dashboard.achievments.show', compact('prestasi'));
     }
 
-    public function edit(Achievment $achievment)
+    public function edit(Achievment $prestasi)
     {
-        return view('dashboard.achievments.edit', compact('achievment'));
+        return view('dashboard.achievments.edit', compact('prestasi'));
     }
 
-    public function update(Request $request, Achievment $achievment)
+
+    public function update(Request $request, Achievment $prestasi)
     {
         $rules = [
             'title' => 'required|string|max:255',
@@ -59,7 +60,7 @@ class AdminAchievmentController extends Controller
             'body' => 'required|string',
             'image' => 'file|image|max:1024',
         ];
-        if ($request->slug != $achievment->slug) {
+        if ($request->slug != $prestasi->slug) {
             $rules['slug'] = 'required|string|unique:achievments,slug';
         }
         $validated = $request->validate($rules);
@@ -69,8 +70,8 @@ class AdminAchievmentController extends Controller
             }
             $validated['image'] = $request->file('image')->store('achievment-images');
         }
-        Achievment::where('id', $achievment->id)->update($validated);
-        return redirect(route('prestasi.index'))->with('success', 'Achievment has been updated');
+        Achievment::where('id', $prestasi->id)->update($validated);
+        return redirect(route('prestasi.index'))->with('success', 'Achievment berhasil diubah');
     }
 
     public function slug(Request $request)

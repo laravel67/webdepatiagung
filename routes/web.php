@@ -78,8 +78,8 @@ Route::group(['middleware' => ['role']], function () {
     Route::get('/mapels/slug', [AdminGuruController::class, 'slug']);
     Route::resource('/dashboard/guru', AdminGuruController::class)->names('guru');
     Route::get('/achievments/slug', [AdminAchievmentController::class, 'slug']);
-    Route::resource('/dashboard/prestasi', AdminAchievmentController::class)->names('prestasi');
     Route::get('/dashboard/pendaftaran', [AdminStudentController::class, 'index'])->name('daftar.index');
+    Route::resource('/dashboard/prestasi', AdminAchievmentController::class)->names('prestasi');
     Route::get('/dashboard/pendaftaran/{student}/show', [AdminStudentController::class, 'show'])->name('daftar.show');
     Route::get('/dashboard/pendaftaran/{student}/edit', [AdminStudentController::class, 'edit'])->name('daftar.edit');
     Route::put('/dashboard/pendaftaran/{student}/update', [AdminStudentController::class, 'update'])->name('daftar.update');

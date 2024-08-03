@@ -50,6 +50,7 @@ class AdminPostController extends Controller
     
     public function show(Post $post)
     {
+        dd($post);
         $subTitle = 'Detail Artikel';
         return view('dashboard.posts.show', compact('subTitle', 'post'));
     }
