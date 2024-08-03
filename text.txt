@@ -1,1 +1,0 @@
-cp -r /home/u535759662/daweb/storage/app/public /home/u535759662/public_html/storage
