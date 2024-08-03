@@ -21,7 +21,11 @@ class KesiswaanController extends Controller
     {
         $pa = Persada::where('category', 'PA')->latest()->first();
         $pi = Persada::where('category', 'PI')->latest()->first();
-        $priode = $pa->priode ?? $pi->priode;
+        if (!$pa && !$pi) {
+            $priode = 'N/A'; // Or any default value you want
+        } else {
+            $priode = $pa->priode ?? $pi->priode;
+        }
         view()->share('title', 'Struktur Organisasi Santri Depati Agung ' . $priode);
         return view('home.kesiswaan.persada', compact('pa', 'pi'));
     }

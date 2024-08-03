@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('strukturs', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->foreignId('jabatan_id');
-            $table->string('image');
-            $table->timestamps();
+        Schema::table('posts', function (Blueprint $table) {
+            //
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('strukturs');
+        Schema::table('posts', function (Blueprint $table) {
+            //
+        });
     }
 };

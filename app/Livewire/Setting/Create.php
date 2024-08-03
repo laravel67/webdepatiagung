@@ -44,7 +44,7 @@ class Create extends Component
             $imgName = 'brosur-' . $this->name . '.' . $this->image->getClientOriginalExtension();
             $this->image->storeAs('brosurs', $imgName, 'public');
         }
-        Taj::where('status', 1)->update(['status' => 0]);
+        Taj::where('status', "1")->update(['status' => "0"]);
         Taj::create([
             'name' => $this->name,
             'chief' => $this->chief,

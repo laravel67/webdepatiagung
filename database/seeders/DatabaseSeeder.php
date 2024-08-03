@@ -57,16 +57,14 @@ class DatabaseSeeder extends Seeder
         //     Sambutan::factory(1)->create();
         // });
 
-        DB::transaction(function () {
-            User::factory()->create([
-                'name' => 'Murtaki',
-                'username' => 'murtaki99',
-                'email' => 'admin@gmail.com',
-                'phone' => '082279761815',
-                'password' => bcrypt('123'),
-                'role' => 'admin',
-            ]);
-        });
+        User::factory()->create([
+            'name' => 'Murtaki',
+            'username' => 'murtaki99',
+            'email' => 'admin@gmail.com',
+            'phone' => '082279761815',
+            'password' => bcrypt('123'),
+            'role' => 'admin',
+        ]);
 
         // $names = [
         //     'YAYASAN', 'PIMPINAN', 'KABAG TU', 'BENDAHARA', 'PENGASUH PUTRA',

@@ -28,7 +28,7 @@
                     </td>
                     <td>
                         <div class="btn btn-group">
-                            @if ($taj->status==0)
+                            @if ($taj->status=='0')
                             <x-btn-action model="active('{{ $taj->id }}')" color="secondary">
                                 {{ __('toggle-off') }}
                             </x-btn-action>

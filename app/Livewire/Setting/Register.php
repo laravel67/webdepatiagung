@@ -26,15 +26,16 @@ class Register extends Component
     public function active($id)
     {
         $taj = Taj::findOrFail($id);
-        $taj->status = 1;
-        $taj->save();
-        $this->dispatch('activedRegister');
+        $taj->update([
+            'status' => '1'
+        ]);
     }
     public function unactive($id)
     {
         $taj = Taj::findOrFail($id);
-        $taj->status = 0;
-        $taj->save();
+        $taj->update([
+            'status' => '0'
+        ]);
     }
 
     public function edit($id)
